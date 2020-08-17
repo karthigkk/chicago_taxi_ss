@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="jumbotron" style="background-image: url(/Users/karthikeyangurusamy/PycharmProjects/chicago_taxi_fare/Project/ui_components/static/CHICAGO.jpg);" >
+                <h1>CHICAGO TAXI PREDICTION</h1>
+                <p>TYPE THE DISCLAIMER HERE</p>
+            </div>
+        </div>
+        <form action={{url_for('forms.thankyou')}}>
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Enter the Pick up details </h2>
+
+                        <div class="form-group">
+                            <label for="PickupAddress1">Pickup Address 1:</label>
+                            <input type="text" class="form-control" id="PickupAddress1" placeholder="Address 1" name="PickupAddress1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="PickupAddress2">Pickup Address 2:</label>
+                            <input type="text" class="form-control" id="PickupAddress2" placeholder="Address 2" name="PickupAddress2" >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="PickupCity">Pickup City:</label>
+                            <input type="text" class="form-control" id="PickupCity" placeholder="City" name="PickupCity" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="PickupState">Pick up State:</label>
+                            <select class="form-control" id="PickupState" name="PickupState" required>
+                                <option>Illionis</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="PickupZipCode">Pick up Zip Code:</label>
+                            <input type="text" class="form-control" id="PickupZipCode" placeholder="Zip Code" name="PickupZipCode" required>
+                        </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <h2>Enter the Drop Off details </h2>
+                        <div class="form-group">
+                            <label for="DropAddress1">Drop Address 1:</label>
+                            <input type="text" class="form-control" id="DropAddress1" placeholder="Address 1" name="DropAddress1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="DropAddress2">Drop Address 2:</label>
+                            <input type="text" class="form-control" id="DropAddress2" placeholder="Address 2" name="DropAddress2">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="DropCity">Drop City:</label>
+                            <input type="text" class="form-control" id="DropCity" placeholder="City" name="DropCity" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="DropOffState">Drop Off State:</label>
+                            <select class="form-control" id="DropOffState" name="DropOffState" required>
+                                <option>Illinois</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="DropZipCode">Drop Zip Code:</label>
+                            <input type="text" class="form-control" id="DropZipCode" placeholder="Zip Code" name="DropZipCode" required>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container p-3">
+                <div class="row">
+                    <div class="col">
+                        <label for="PickupDate">Pickup Date:</label>
+                        <input type="date" class="form-control" id="PickupDate" placeholder="Pickup Date" name="PickupDate" value={{dt}} required>
+                    </div>
+
+                    <div class="col">
+                        <label for="PickupTime">Pickup Time</label>
+                        <input type="time" class="form-control" id="PickupTime" placeholder="Pickup Time" name="PickupTime" value={{tm}} required>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="Company">Company:</label>
+                            <select class="form-control" id="Company" name="Company" required>
+                                {% for comp in company %}
+                                    <option>{{comp}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="container">
+                <div class="row">
+                    <div class="col">
+                            <button type="submit" class="btn btn-secondary">
+                                Predict Taxi Fare - ML Model
+                            </button>
+                    </div>
+                </div>
+        </div>
+        </form>
+    </body>
+</html>
+
+

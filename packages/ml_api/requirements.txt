@@ -1,0 +1,16 @@
+#--extra-index-url=${PIP_EXTRA_INDEX_URL}
+
+# api
+flask==1.1.2
+flask-restful==0.3.8
+pandas==1.0.4
+
+# local regression_model package.  This will look for setup.py file and build the package and deploy
+#-e '/Users/karthikeyangurusamy/PycharmProjects/Chicago_Taxi_SS/packages/regression_model'
+-e '/opt/regression_model'
+
+#Install from gemfury
+#regression-model==0.1.0
+
+# Deployment
+gunicorn==19.9.0
