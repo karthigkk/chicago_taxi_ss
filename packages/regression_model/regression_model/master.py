@@ -1,18 +1,8 @@
 from regression_model.preprocessing.dataacquisition import Dataacquisition
 from regression_model.preprocessing.preprocessors import Dataclean
 from regression_model.predict import Predict
-from pyspark.mllib.evaluation import RegressionMetrics
 from regression_model.train_model import Trainmodel
 from regression_model.config import config
-from pyspark.sql import DataFrame
-
-
-def evaluate_results(results: DataFrame) -> (float, float, float):
-    # Evaluate metrics
-    valuesandpreds = results.rdd.map(lambda p: (float(p.prediction), p.fare))
-    valuesandpreds.take(5)
-    metric = RegressionMetrics(valuesandpreds)
-    return metric.meanSquaredError, metric.rootMeanSquaredError, metric.r2
 
 
 if __name__ == '__main__':
@@ -41,7 +31,5 @@ if __name__ == '__main__':
     Prediction = pred.make_prediction()
 
     # evaluate the model
-    mse, rmse, r2 = evaluate_results(Prediction)
-    print('test mse: {}'.format(mse))
-    print('test rmse: {}'.format(rmse))
-    print('test r2: {}'.format(r2))
+    mse, rmse, r2 = pred.evaluate_results(Prediction)
+

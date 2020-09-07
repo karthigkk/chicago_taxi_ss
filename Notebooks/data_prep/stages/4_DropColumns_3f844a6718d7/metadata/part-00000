@@ -1,0 +1,1 @@
+{"class":"com.microsoft.ml.spark.stages.DropColumns","timestamp":1599028405761,"sparkVersion":"2.4.5","uid":"DropColumns_3f844a6718d7","paramMap":{"cols":["trip_start_timestamp"]},"defaultParamMap":{}}

@@ -1,0 +1,1 @@
+{"class":"com.microsoft.ml.spark.stages.UDFTransformer","timestamp":1599028405352,"sparkVersion":"2.4.5","uid":"UDFTransformer_d9a5ecb618a3","paramMap":{"inputCol":"trip_start_timestamp","outputCol":"Trip_Year"},"defaultParamMap":{"outputCol":"UDFTransformer_d9a5ecb618a3_output"},"complexParamLocs":{"udf":"complexParams/udf"}}

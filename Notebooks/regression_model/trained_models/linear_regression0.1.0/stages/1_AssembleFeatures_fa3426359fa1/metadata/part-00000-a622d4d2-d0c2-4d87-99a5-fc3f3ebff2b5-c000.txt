@@ -1,0 +1,1 @@
+{"class":"com.microsoft.ml.spark.featurize.AssembleFeaturesModel","timestamp":1598800780473,"sparkVersion":"2.4.5-amzn-0","uid":"AssembleFeatures_fa3426359fa1","paramMap":"{}"}

@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.PipelineModel","timestamp":1599028404698,"sparkVersion":"2.4.5","uid":"PipelineModel_504f0feae220","paramMap":{"stageUids":["UDFTransformer_25e68cff5f97","UDFTransformer_d9a5ecb618a3","UDFTransformer_1f3269944800","UDFTransformer_9e5725fb1ec0","DropColumns_3f844a6718d7","AssembleFeatures_d8e2f2e8b039"]},"defaultParamMap":{}}

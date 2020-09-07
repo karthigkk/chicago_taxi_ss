@@ -5,25 +5,26 @@ import json
 
 forms_blueprints = Blueprint('forms', __name__, template_folder='templates')
 
-@forms_blueprints.route('/')
+@forms_blueprints.route('/', methods=['GET','POST'])
 def index():
     company = ['Medallion Leasin', 'City Service', 'Blue Diamond']
     now = datetime.now()
     return render_template('TaxiFare.html', company=company, dt=now.strftime('%Y-%m-%d'), tm=now.strftime('%I:%M %p'))
 
 
-@forms_blueprints.route('/thankyou', methods=['GET', 'POST'])
+@forms_blueprints.route('/thankyou', methods=['GET','POST'])
 def thankyou():
-    padd1 = request.args.get('PickupAddress1')
-    pcity = request.args.get('PickupCity')
-    pstate = request.args.get('PickupState')
-    pzip = request.args.get('PickupZipCode')
+    padd1 = request.form.get('PickupAddress1')
+    pcity = request.form.get('PickupCity')
+    pstate = request.form.get('PickupState')
+    pzip = request.form.get('PickupZipCode')
+    print(padd1,pcity,pstate,pzip)
     paddress = padd1.replace(' ', '+') + ',+' + \
                pcity.replace(' ', '+') + ',+' + \
                pstate.replace(' ', '+') + ',+' + \
                pzip.replace(' ', '+')
     url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + paddress + \
-          '&key=AIzaSyCMjlBPLLqiFWgkBPcA28xA1TFy'
+          '&key=AIzaSyAQREiE3MrWSepIa1bnxW_WEXvolq6uJg8'
     response = requests.get(url)
     jsonresponse = response.json()
     if jsonresponse['status'] == 'OK':
@@ -33,16 +34,16 @@ def thankyou():
     else:
         return render_template('ErrorPage.html', message=jsonresponse['message'])
 
-    dadd1 = request.args.get('DropAddress1')
-    dcity = request.args.get('DropCity')
-    dstate = request.args.get('DropOffState')
-    dzip = request.args.get('DropZipCode')
+    dadd1 = request.form.get('DropAddress1')
+    dcity = request.form.get('DropCity')
+    dstate = request.form.get('DropOffState')
+    dzip = request.form.get('DropZipCode')
     daddress = dadd1.replace(' ', '+') + ',+' + \
                dcity.replace(' ', '+') + ',+' + \
                dstate.replace(' ', '+') + ',+' + \
                dzip.replace(' ', '+')
     url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + daddress + \
-          '&key=AIzaSyCMjlBPLLqiFWgkBPcA28xA1TFy'
+          '&key=AIzaSyAQREiE3MrWSepIa1bnxW_WEXvolq6uJg8'
     response = requests.get(url)
     jsonresponse = response.json()
     if jsonresponse['status'] == 'OK':
@@ -52,16 +53,16 @@ def thankyou():
     else:
         return render_template('ErrorPage.html', message=jsonresponse['message'])
 
-    pickup_date_time = request.args.get('PickupDate') + ' ' + request.args.get('PickupTime')
+    pickup_date_time = request.form.get('PickupDate') + ' ' + request.form.get('PickupTime')
     pickup_date_time1 = datetime.strptime(pickup_date_time, '%Y-%m-%d %H:%M')
     pickup_date_time1.strftime('yyy-MM-dd HH:mm:ss Z')
 
-    company = request.args.get('Company')
+    company = request.form.get('Company')
     values = {'pickup_latitude': [pickup_latitude],
               'pickup_longitude': [pickup_longitude],
               'dropoff_latitude': [dropoff_latitude],
               'dropoff_longitude': [dropoff_longitude],
-              'trip_start_timestamp': [str(pickup_date_time1) + ' UTC'],
+              'trip_start_timestamp': [str(pickup_date_time1)],
               'company': [company]}
     fare_response = requests.post('http://localhost:5000/v1/predict/regression', json=values)
     print(type(fare_response))

@@ -1,0 +1,1 @@
+{"class":"com.microsoft.ml.spark.stages.UDFTransformer","timestamp":1599028405155,"sparkVersion":"2.4.5","uid":"UDFTransformer_25e68cff5f97","paramMap":{"outputCol":"Trip_Day_Of_Week","inputCol":"trip_start_timestamp"},"defaultParamMap":{"outputCol":"UDFTransformer_25e68cff5f97_output"},"complexParamLocs":{"udf":"complexParams/udf"}}

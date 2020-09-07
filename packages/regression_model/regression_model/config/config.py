@@ -15,11 +15,11 @@ DATA_FILE = 'full'
 
 #Model Version
 VERSION = PACKAGE_ROOT / 'VERSION'
-#VERSION = sys.argv[2]
+# VERSION = sys.argv[2]
 
 # Name of the pipeline
 PIPELINE_NAME = PACKAGE_ROOT / 'trained_models/linear_regression'
-#PIPELINE_NAME = sys.argv[1]
+# PIPELINE_NAME = sys.argv[1]
 
 # Features
 FEATURES = ['pickup_latitude', 'pickup_longitude', 'dropoff_latitude', 'dropoff_longitude', 'company',
@@ -32,7 +32,7 @@ NUMERICAL_VARS = ['pickup_latitude', 'pickup_longitude', 'dropoff_latitude', 'dr
 DERIVED_VARS = ['Trip_Day_Of_Week', 'Trip_Year', 'Trip_Month', 'Trip_Hour']
 
 # categorical variables to encode
-CATEGORICAL_VAR = 'company'
+CATEGORICAL_VAR = ['company']
 
 TARGET = 'fare'
 

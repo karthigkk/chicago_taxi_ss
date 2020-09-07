@@ -1,0 +1,1 @@
+{"class":"com.microsoft.ml.spark.stages.UDFTransformer","timestamp":1599028405487,"sparkVersion":"2.4.5","uid":"UDFTransformer_1f3269944800","paramMap":{"outputCol":"Trip_Month","inputCol":"trip_start_timestamp"},"defaultParamMap":{"outputCol":"UDFTransformer_1f3269944800_output"},"complexParamLocs":{"udf":"complexParams/udf"}}
