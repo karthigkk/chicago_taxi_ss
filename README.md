@@ -5,7 +5,7 @@ This project is to predict taxi fare based on chicago taxi fare data and Light G
 ## Application Access
 
 Applicaiton is deployed in AWS ECS.  UI can be access via the below url, which in turn calls the API
-<3.86.180.6:80>
+http://3.86.180.6:80
 
 API can be directly access with the below details
 
